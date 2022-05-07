@@ -31,6 +31,8 @@ export default function CartDrawer(props) {
       removeFromCart={props.removeFromCart}
     />);
 
+  const cartTotal = props.cart.reduce((sum, item) => sum + item.price, 0);
+
 
   return (
     <div className="cart-drawer">
@@ -55,6 +57,9 @@ export default function CartDrawer(props) {
         }}
       >
         {cartList}
+        <div className="cart-total">
+          Total ${cartTotal}
+        </div>
       </SwipeableDrawer>
     </div>
 
