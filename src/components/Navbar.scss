@@ -1,0 +1,21 @@
+//navbar.scss
+.navbar {
+  width: 100%;
+  z-index: 99;
+  padding: 1em;
+  min-height: 6vh;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f7efe7;
+  // transition: all .7s ease-in;
+}
+.scrolled {
+  position: fixed;
+  // width: 100%;
+  top: 0;
+  // left: 0;
+  // background-color: lightblue;
+}
+

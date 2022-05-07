@@ -4,6 +4,8 @@ import { useState, useEffect } from "react";
 export default function useApplicationData() {
 
   const [products, setProducts] = useState([]);
+  const [cart, setCart] = useState([]);
+
 
   useEffect(() => {
     Promise.all([
@@ -11,13 +13,57 @@ export default function useApplicationData() {
     ])
     .then((all) => {
       setProducts(all[0].data.data.products);
-      // console.log(all);
     })
     .catch(err => console.log(err.message));
   }, []);
+
+
+  const addToCart = id => {
+    // cart.map(cartItem => {
+    //   if (id !== cartItem._id) {
+
+    //     products.map(product => {
+    //       if (id === product._id) {
+    //         setCart([
+    //           ...cart,
+    //           { _id: product._id, name: product.fulhausProductName, price: product.retailPrice }
+    //         ]);
+    //       }
+    //       return product;
+    //     })
+
+
+
+    //     console.log("Not in a cart yet");
+    //     return cartItem;
+    //   } else {
+    //     console.log("In cart already");
+    //     return cartItem;    
+    //   }
+    // })
+
+      products.map(product => {
+        if (id === product._id) {
+          setCart([
+            ...cart,
+            { _id: product._id, name: product.fulhausProductName, price: product.retailPrice, image: product.imageURLs[0] }
+          ]);
+        }
+        return product;
+      })
+  };
+
+  const removeFromCart = (id) => {
+    const filteredCart = cart.filter(cartItem =>  cartItem._id !== id );
+    console.log("Product to remove: ", id);
+    console.log("new cart",filteredCart);
+    setCart(filteredCart);
+  };
   
-  // console.log(products);
   return {
     products,
+    cart,
+    addToCart,
+    removeFromCart
   }
 }
