@@ -1,3 +1,4 @@
+// import './Products.scss';
 import Product from "./Product";
 
 export default function ProductsList(props) {
@@ -16,7 +17,7 @@ export default function ProductsList(props) {
     />);
 
   return (
-    <div>
+    <div className="products">
       {products}
     </div>
   );

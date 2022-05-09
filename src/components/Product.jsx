@@ -44,10 +44,10 @@ export default function Product(props) {
     //   </CardActions>
     // </Card>
 
-    <div>
+    <div className='product'>
       <h2>{props.name}</h2>
       {props.brandName}
-      {props.price}
+      ${props.price}
 
       <img src={props.image} alt={props.name} className="product-img" />
       <button
