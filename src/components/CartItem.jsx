@@ -7,10 +7,10 @@ export default function Product(props) {
   return (
  
 
-    <div>
+    <div className="cart-item">
       <h2>{props.name}</h2>
       {props.price}
-      <img src={props.image} alt={props.name} className="product-img" />
+      <img src={props.image} alt={props.name} className="cart-img" />
       <button
         // onClick={() => removeFromCart(props.id)}
         onClick={() => props.removeFromCart(props.id)}

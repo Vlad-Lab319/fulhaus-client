@@ -1,4 +1,4 @@
-import './App.css';
+// import './App.css';
 import useApplicationData from '../hooks/useApplicationData';
 import ProductsList from './ProductsList';
 import Navbar from './Navbar';

@@ -1,17 +1,17 @@
-.App {
+/* .App {
   display: flex;
   text-align: center;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 
-}
+} */
 
-.product-img {
+/* .product-img {
   max-width: 200px;
-}
+} */
 
-.main-page {
+/* .main-page {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -19,9 +19,9 @@
   margin-top: 12vh;
   min-height: 100vh;
   width: 100%;
-}
+} */
 
-.main-img {
+/* .main-img {
   width: 100%;
   max-width: 1800px;
-}
+} */
