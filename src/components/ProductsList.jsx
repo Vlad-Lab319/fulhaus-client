@@ -17,7 +17,7 @@ export default function ProductsList(props) {
     />);
 
   return (
-    <div className="products">
+    <div className="wrapper">
       {products}
     </div>
   );
