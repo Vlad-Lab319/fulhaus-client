@@ -9,12 +9,16 @@ export default function useApplicationData() {
 
   useEffect(() => {
     Promise.all([
-      axios.get(`https://fh-api-dev.herokuapp.com/api/products-service/products/website/CAD?page=0&limit=6`),
+      axios.get(`https://fh-api-dev.herokuapp.com/api/products-service/products/website/CAD?page=0&limit=6`,
+        {
+          headers: { 'Access-Control-Allow-Origin': '*' }
+        }
+      ),
     ])
-    .then((all) => {
-      setProducts(all[0].data.data.products);
-    })
-    .catch(err => console.log(err.message));
+      .then((all) => {
+        setProducts(all[0].data.data.products);
+      })
+      .catch(err => console.log(err.message));
   }, []);
 
 
@@ -42,24 +46,24 @@ export default function useApplicationData() {
     //   }
     // })
 
-      products.map(product => {
-        if (id === product._id) {
-          setCart([
-            ...cart,
-            { _id: product._id, name: product.fulhausProductName, price: product.retailPrice, image: product.imageURLs[0] }
-          ]);
-        }
-        return product;
-      })
+    products.map(product => {
+      if (id === product._id) {
+        setCart([
+          ...cart,
+          { _id: product._id, name: product.fulhausProductName, price: product.retailPrice, image: product.imageURLs[0] }
+        ]);
+      }
+      return product;
+    })
   };
 
   const removeFromCart = (id) => {
-    const filteredCart = cart.filter(cartItem =>  cartItem._id !== id );
+    const filteredCart = cart.filter(cartItem => cartItem._id !== id);
     console.log("Product to remove: ", id);
-    console.log("new cart",filteredCart);
+    console.log("new cart", filteredCart);
     setCart(filteredCart);
   };
-  
+
   return {
     products,
     cart,
