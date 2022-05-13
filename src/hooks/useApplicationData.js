@@ -9,7 +9,7 @@ export default function useApplicationData() {
 
   useEffect(() => {
     Promise.all([
-      axios.get(`https://main.d2gbrhxiwclyyv.amplifyapp.com/https://fh-api-dev.herokuapp.com/api/products-service/products/website/CAD?page=0&limit=6`,
+      axios.get(`https://fh-api-dev.herokuapp.com/api/products-service/products/website/CAD?page=0&limit=6`,
         {
           headers: { 'Access-Control-Allow-Origin': '*' }
         }
