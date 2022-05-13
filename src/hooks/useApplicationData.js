@@ -16,11 +16,11 @@ export default function useApplicationData() {
           mode: 'no-cors',
           headers: {
             'Access-Control-Allow-Origin': '*',
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
+            // 'Accept': 'application/json',
+            // 'Content-Type': 'application/json'
           },
-          withCredentials: true,
-          credentials: 'same-origin',
+          // withCredentials: true,
+          // credentials: 'same-origin',
           crossDomain: true
         }
       ),
