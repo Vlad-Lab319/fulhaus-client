@@ -12,7 +12,10 @@ export default function useApplicationData() {
       axios.get(`https://fh-api-dev.herokuapp.com/api/products-service/products/website/CAD?page=0&limit=6`,
         {
           // headers: { 'Access-Control-Allow-Origin': '*' }
+          method: 'GET',
+          mode: 'no-cors',
           headers: {
+            'Access-Control-Allow-Origin': '*',
             'Accept': 'application/json',
             'Content-Type': 'application/json'
           },
