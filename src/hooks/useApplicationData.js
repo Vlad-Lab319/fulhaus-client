@@ -11,7 +11,12 @@ export default function useApplicationData() {
     Promise.all([
       axios.get(`https://fh-api-dev.herokuapp.com/api/products-service/products/website/CAD?page=0&limit=6`,
         {
-          headers: { 'Access-Control-Allow-Origin': '*' }
+          // headers: { 'Access-Control-Allow-Origin': '*' }
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+          },
+          crossDomain: true
         }
       ),
     ])
