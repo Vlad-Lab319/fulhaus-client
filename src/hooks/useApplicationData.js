@@ -18,9 +18,11 @@ export default function useApplicationData() {
           headers: {
             'Access-Control-Allow-Methods': 'GET',
             'Access-Control-Allow-Origin': '*',
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
+            // 'Accept': 'application/json',
+            // 'Content-Type': 'application/json'
           },
+          // withCredentials: true,
+          // credentials: 'same-origin',
           crossDomain: true
         }
       ),
