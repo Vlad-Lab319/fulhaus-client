@@ -10,11 +10,13 @@ export default function useApplicationData() {
   useEffect(() => {
     Promise.all([
       axios.get(`https://fh-api-dev.herokuapp.com/api/products-service/products/website/CAD?page=0&limit=6`,
+      // axios.get(`https://fh-api-dev.herokuapp.com/api/products-service/products/website/CAD?page=0`,
         {
           // headers: { 'Access-Control-Allow-Origin': '*' }
           method: 'GET',
           mode: 'no-cors',
           headers: {
+            'Access-Control-Allow-Methods': 'GET',
             'Access-Control-Allow-Origin': '*',
             'Accept': 'application/json',
             'Content-Type': 'application/json'
