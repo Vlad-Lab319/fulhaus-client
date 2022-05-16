@@ -1,4 +1,4 @@
-// import axios from "axios";
+import axios from "axios";
 import { useState, useEffect } from "react";
 
 export default function useApplicationData() {
@@ -6,56 +6,57 @@ export default function useApplicationData() {
   const [products, setProducts] = useState([]);
   const [cart, setCart] = useState([]);
 
-
-  // useEffect(() => {
-  //   Promise.all([
-
-  //     axios.get(`https://fh-api-dev.herokuapp.com/api/products-service/products/website/CAD?page=0&limit=6`,
-  //     // axios.get(URL,
-
-  //     // axios.get(`https://fh-api-dev.herokuapp.com/api/products-service/products/website/CAD?page=0`,
-  //       // {
-  //       //   // headers: { 'Access-Control-Allow-Origin': '*' }
-  //       //   method: 'GET',
-  //       //   mode: 'no-cors',
-  //       //   headers: {
-  //       //     'Access-Control-Allow-Methods': 'GET',
-  //       //     'Access-Control-Allow-Origin': '*',
-  //       //     // 'Accept': 'application/json',
-  //       //     // 'Content-Type': 'application/json'
-  //       //   },
-  //       //   // withCredentials: true,
-  //       //   // credentials: 'same-origin',
-  //       //   crossDomain: true
-  //       // }
-  //     ),
-
-  //   ])
-  //     .then((all) => {
-  //       setProducts(all[0].data.data.products);
-  //     })
-  //     .catch(err => console.log(err.message));
-  // }, []);
-
   const url = `https://fh-api-dev.herokuapp.com/api/products-service/products/website/CAD?page=0&limit=6`;
 
-  const options = {
+  const axiosOptions = {
     method: 'GET',
-    mode: 'cors',
+    mode: 'no-cors',
     headers: {
-                'Access-Control-Allow-Methods': 'GET',
-                'Access-Control-Allow-Origin': '*',
-                'Accept': 'application/json',
-                'Content-Type': 'application/json',
-              },
+      'Access-Control-Allow-Methods': 'GET',
+      'Access-Control-Allow-Origin': '*',
+      // 'Accept': 'application/json',
+      // 'Content-Type': 'application/json'
+    },
+    // withCredentials: true,
+    // credentials: 'same-origin',
+    crossDomain: true
+  }
+
+
+  useEffect(() => {
+    Promise.all([
+
+      axios.get(
+        url,
+        axiosOptions
+      ),
+
+    ])
+      .then((all) => {
+        setProducts(all[0].data.data.products);
+      })
+      .catch(err => console.log(err.message));
+  }, []);
+
+
+  const fetchOptions = {
+    method: 'GET',
+    // mode: 'no-cors',
+    headers: {
+      'Access-Control-Allow-Methods': 'GET',
+      'Access-Control-Allow-Origin': '*',
+      'Accept': 'application/json',
+      'Content-Type': 'application/json',
+      'Access-Control-Request-Headers': 'Content-Type, Authorization',
+    },
 
   }
 
   async function fetchProducts() {
     try {
       const response = await fetch(
-        url, 
-        options
+        url,
+        fetchOptions
       );
       const products = await response.json();
       return products;
@@ -64,14 +65,14 @@ export default function useApplicationData() {
     }
   };
 
-  useEffect(() => {
-    fetchProducts()
-    .then((all) => {
-      // console.log('for rendering', all.data.products);
-      setProducts(all.data.products);
-    })
-    .catch(err => console.log(err.message));
-  }, []);
+  // useEffect(() => {
+  //   fetchProducts()
+  //   .then((all) => {
+  //     // console.log('for rendering', all.data.products);
+  //     setProducts(all.data.products);
+  //   })
+  //   .catch(err => console.log(err.message));
+  // }, []);
 
 
 
