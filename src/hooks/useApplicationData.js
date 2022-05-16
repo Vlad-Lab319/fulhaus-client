@@ -6,6 +6,8 @@ export default function useApplicationData() {
   const [products, setProducts] = useState([]);
   const [cart, setCart] = useState([]);
 
+  const [dog, setDog] = useState([]);
+
   const url = `https://fh-api-dev.herokuapp.com/api/products-service/products/website/CAD?page=0&limit=6`;
 
   const axiosOptions = {
@@ -30,10 +32,13 @@ export default function useApplicationData() {
         url,
         axiosOptions
       ),
+      axios.get(`https://dog.ceo/api/breeds/image/random`)
 
     ])
       .then((all) => {
         setProducts(all[0].data.data.products);
+        console.log(all[1].data.message);
+        setDog(all[1].data.message);
       })
       .catch(err => console.log(err.message));
   }, []);
@@ -121,6 +126,7 @@ export default function useApplicationData() {
   return {
     products,
     cart,
+    dog,
     addToCart,
     removeFromCart
   }
