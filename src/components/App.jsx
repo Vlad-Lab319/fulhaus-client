@@ -15,6 +15,7 @@ function App() {
   const {
     products, 
     cart, 
+    dog,
     addToCart,
     removeFromCart
   } = useApplicationData();
@@ -38,6 +39,10 @@ function App() {
           products={products}
           addToCart={addToCart}
         />
+      </section>
+      
+      <section className="dog">
+        <img src={dog} alt="random dog" />
       </section>
 
     </div>
