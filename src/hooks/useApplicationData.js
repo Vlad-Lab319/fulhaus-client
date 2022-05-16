@@ -40,7 +40,16 @@ export default function useApplicationData() {
   async function fetchProducts() {
     try {
       const response = await fetch(
-        `https://fh-api-dev.herokuapp.com/api/products-service/products/website/CAD?page=0&limit=6`
+        `https://fh-api-dev.herokuapp.com/api/products-service/products/website/CAD?page=0&limit=6`,
+        {
+          // mode: 'no-cors',
+          headers: {
+                      // 'Access-Control-Allow-Methods': 'GET',
+                      'Access-Control-Allow-Origin': '*',
+                  //     // 'Accept': 'application/json',
+                  //     // 'Content-Type': 'application/json'
+                    },
+        }
       );
       const products = await response.json();
       return products;
