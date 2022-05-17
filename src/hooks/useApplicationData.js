@@ -28,21 +28,22 @@ export default function useApplicationData() {
   useEffect(() => {
     Promise.all([
 
-      // axios.get(
-      //   url,
-      //   axiosOptions
-      // ),
       axios.get(
-        `https://dog.ceo/api/breeds/image/random`,
+        url,
+        axiosOptions
+      ),
+      axios.get(
+        // `https://dog.ceo/api/breeds/image/random`,
+        `/dog`,
         axiosOptions
       )
 
     ])
       .then((all) => {
-        // console.log('Products: ', all[0].data.data.products);
-        // setProducts(all[0].data.data.products);
-        console.log('Dog: ', all[0].data.message);
-        setDog(all[0].data.message);
+        console.log('Products: ', all[0].data.data.products);
+        setProducts(all[0].data.data.products);
+        console.log('Dog: ', all[1].data.message);
+        setDog(all[1].data.message);
       })
       .catch(err => console.log(err.message));
   }, []);
