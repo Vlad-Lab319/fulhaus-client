@@ -36,8 +36,9 @@ export default function useApplicationData() {
 
     ])
       .then((all) => {
+        console.log('Products: ', all[0].data.data.products);
         setProducts(all[0].data.data.products);
-        console.log(all[1].data.message);
+        console.log('Dog: ', all[1].data.message);
         setDog(all[1].data.message);
       })
       .catch(err => console.log(err.message));
