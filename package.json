@@ -1,7 +1,7 @@
 {
   "name": "fulhaus-client",
   "version": "0.1.0",
-  "proxy": "https://dog.ceo/api/breeds/image/random",
+  "proxy": "https://dog.ceo",
   "homepage": "https://main.d2gbrhxiwclyyv.amplifyapp.com",
   "private": true,
   "dependencies": {

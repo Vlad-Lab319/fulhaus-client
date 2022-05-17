@@ -12,7 +12,7 @@ export default function useApplicationData() {
 
   const axiosOptions = {
     method: 'GET',
-    mode: 'no-cors',
+    // mode: 'no-cors',
     headers: {
       // 'Access-Control-Allow-Methods': 'GET',
       // 'Access-Control-Allow-Origin': '*',
