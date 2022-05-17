@@ -14,14 +14,14 @@ export default function useApplicationData() {
     method: 'GET',
     mode: 'no-cors',
     headers: {
-      'Access-Control-Allow-Methods': 'GET',
-      'Access-Control-Allow-Origin': '*',
-      // 'Accept': 'application/json',
-      // 'Content-Type': 'application/json'
+      // 'Access-Control-Allow-Methods': 'GET',
+      // 'Access-Control-Allow-Origin': '*',
+    //   // 'Accept': 'application/json',
+    //   // 'Content-Type': 'application/json'
     },
     // withCredentials: true,
-    // credentials: 'same-origin',
-    crossDomain: true
+    // // credentials: 'same-origin',
+    // // crossDomain: true
   }
 
 
@@ -32,7 +32,10 @@ export default function useApplicationData() {
         url,
         axiosOptions
       ),
-      axios.get(`https://dog.ceo/api/breeds/image/random`)
+      axios.get(
+        `https://dog.ceo/api/breeds/image/random`,
+        axiosOptions
+      )
 
     ])
       .then((all) => {
