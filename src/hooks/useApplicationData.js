@@ -6,7 +6,7 @@ export default function useApplicationData() {
   const [products, setProducts] = useState([]);
   const [cart, setCart] = useState([]);
 
-  const [dog, setDog] = useState(['https://images.dog.ceo/breeds/terrier-fox/n02095314_2609.jpg']);
+  // const [dog, setDog] = useState(['https://images.dog.ceo/breeds/terrier-fox/n02095314_2609.jpg']);
 
   const url = `https://fh-api-dev.herokuapp.com/api/products-service/products/website/CAD?page=0&limit=6`;
   const urlProxyServer = `https://vlad-profile-server.herokuapp.com/products`;
@@ -135,7 +135,7 @@ export default function useApplicationData() {
   return {
     products,
     cart,
-    dog,
+    // dog,
     addToCart,
     removeFromCart
   }
