@@ -9,6 +9,7 @@ export default function useApplicationData() {
   const [dog, setDog] = useState(['https://images.dog.ceo/breeds/terrier-fox/n02095314_2609.jpg']);
 
   const url = `https://fh-api-dev.herokuapp.com/api/products-service/products/website/CAD?page=0&limit=6`;
+  const urlProxyServer = `https://vlad-profile-server.herokuapp.com/products`;
 
   const axiosOptions = {
     method: 'GET',
@@ -28,22 +29,25 @@ export default function useApplicationData() {
   useEffect(() => {
     Promise.all([
 
-      // axios.get(
-      //   url,
-      //   axiosOptions
-      // ),
       axios.get(
-        // `https://dog.ceo/api/breeds/image/random`,
-        `/dog`,
+        url,
+        // urlProxyServer,
+        `/products`,
         axiosOptions
-      )
+      ),
+      // axios.get(
+      //   // `https://dog.ceo/api/breeds/image/random`,
+      //   `/dog`,
+      //   axiosOptions
+      // )
 
     ])
       .then((all) => {
-        // console.log('Products: ', all[0].data.data.products);
-        // setProducts(all[0].data.data.products);
-        console.log('Dog: ', all[0].data.message);
-        setDog(all[0].data.message);
+        console.log('All: ', all);
+        console.log('Products: ', all[0].data.data.products);
+        setProducts(all[0].data.data.products);
+        // console.log('Dog: ', all[1].data.message);
+        // setDog(all[1].data.message);
       })
       .catch(err => console.log(err.message));
   }, []);
