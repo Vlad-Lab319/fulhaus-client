@@ -15,7 +15,7 @@ function App() {
   const {
     products, 
     cart, 
-    dog,
+    // dog,
     addToCart,
     removeFromCart
   } = useApplicationData();
@@ -41,9 +41,9 @@ function App() {
         />
       </section>
       
-      <section className="dog">
+      {/* <section className="dog">
         <img src={dog} alt="random dog" />
-      </section>
+      </section> */}
 
     </div>
   );
