@@ -30,8 +30,8 @@ export default function useApplicationData() {
     Promise.all([
 
       axios.get(
-        // url,
-        urlProxyServer,
+        url,
+        // urlProxyServer,
         `/products`,
         axiosOptions
       ),
@@ -44,9 +44,10 @@ export default function useApplicationData() {
     ])
       .then((all) => {
         // console.log('All: ', all);
-        // console.log('Products: ', all[0].data.data.products); // Fulhaus dev API object
+        console.log('Products: ', all[0].data.data.products); // Fulhaus dev API object data
         // console.log('Products: ', all[0].data);
-        setProducts(all[0].data);
+        setProducts(all[0].data.data.products); // Fulhaus dev API object data
+        // setProducts(all[0].data); // Proxy server data
         // console.log('Dog: ', all[1].data.message);
         // setDog(all[1].data.message);
       })
@@ -119,7 +120,8 @@ export default function useApplicationData() {
       if (id === product._id) {
         setCart([
           ...cart,
-          { _id: product._id, name: product.name, price: product.retailPrice, image: product.image }
+          // { _id: product._id, name: product.name, price: product.retailPrice, image: product.image } // proxy server data
+          { _id: product._id, name: product.name, price: product.retailPrice, image: product.imageURLs[0] } // fulhaus data
         ]);
       }
       return product;

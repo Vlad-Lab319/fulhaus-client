@@ -1,7 +1,7 @@
 {
   "name": "furniture-shop-client",
   "version": "0.1.0",
-  "proxy": "https://vlad-profile-server.herokuapp.com",
+  "proxy": "https://fh-api-dev.herokuapp.com",
   "homepage": "https://main.d2gbrhxiwclyyv.amplifyapp.com",
   "private": true,
   "dependencies": {

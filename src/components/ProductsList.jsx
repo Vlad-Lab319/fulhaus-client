@@ -9,10 +9,12 @@ export default function ProductsList(props) {
     <Product
       key={product._id}
       id={product._id}
-      name={product.name}
+      // name={product.name} // proxy server data
+      name={product.fulhausProductName}
       brandName={product.vendor.name}
       price={product.retailPrice}
-      image={product.image}
+      // image={product.image} // proxy server data
+      image={product.imageURLs[0]} // fulhaus data
       addToCart={addToCart}    
     />);
 
