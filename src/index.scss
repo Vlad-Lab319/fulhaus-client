@@ -193,11 +193,20 @@ body {
   }
 
   .main-page {
+    display:none;
     margin-top: 2vh;
     position: fixed;
   }
 
   .wrapper {
-    margin-top: 20vh;
+    margin-top: 10vh;
+  }
+
+  .card {
+    width: 280px;
+    height: 360px;
+    margin: 1em;
+    border-radius: 10px;
+    padding: 1rem;
   }
 }
