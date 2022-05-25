@@ -6,7 +6,7 @@ export default function useApplicationData() {
   const [products, setProducts] = useState([]);
   const [cart, setCart] = useState([]);
 
-  const [dog, setDog] = useState(['https://images.dog.ceo/breeds/terrier-fox/n02095314_2609.jpg']);
+  // const [dog, setDog] = useState(['https://images.dog.ceo/breeds/terrier-fox/n02095314_2609.jpg']);
 
   const url = `https://fh-api-dev.herokuapp.com/api/products-service/products/website/CAD?page=0&limit=6`;
   const urlProxyServer = `https://vlad-profile-server.herokuapp.com/products`;
@@ -30,8 +30,8 @@ export default function useApplicationData() {
     Promise.all([
 
       axios.get(
-        url,
-        // urlProxyServer,
+        // url,
+        urlProxyServer,
         `/products`,
         axiosOptions
       ),
@@ -44,10 +44,10 @@ export default function useApplicationData() {
     ])
       .then((all) => {
         // console.log('All: ', all);
-        console.log('Products: ', all[0].data.data.products); // Fulhaus dev API object data
-        // console.log('Products: ', all[0].data);
-        setProducts(all[0].data.data.products); // Fulhaus dev API object data
-        // setProducts(all[0].data); // Proxy server data
+        // console.log('Products: ', all[0].data.data.products); // Fulhaus dev API object data
+        // console.log('Products: ', all[0].data.API);
+        // setProducts(all[0].data.data.products); // Fulhaus dev API object data
+        setProducts(all[0].data.API); // Proxy server data
         // console.log('Dog: ', all[1].data.message);
         // setDog(all[1].data.message);
       })
@@ -138,7 +138,7 @@ export default function useApplicationData() {
   return {
     products,
     cart,
-    dog,
+    // dog,
     addToCart,
     removeFromCart
   }
